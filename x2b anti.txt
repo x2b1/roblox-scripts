@@ -1,0 +1,49 @@
+--[[
+made by x2b
+--]]
+
+
+--Keybind is [B]
+
+
+getgenv().Underground = true
+getgenv().UndergroundAmount = -999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999-999
+local OK = false
+local toggle = true
+ 
+local function Notify(text)
+        game:GetService("StarterGui"):SetCore("SendNotification",
+        {
+            Title = "x2b anti",
+            Text = text,
+            Duration = 1,
+            Button1 = ""
+        }
+        )
+    end
+ 
+game:GetService("RunService").heartbeat:Connect(function()
+    if OK == true then
+    if getgenv().Underground ~= false then 
+    local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(-350,-         getgenv().UndergroundAmount,-999) 
+    game:GetService("RunService").RenderStepped:Wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+    end
+    end 
+end)
+ 
+ 
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(KeyPressed)
+ if KeyPressed == "b" then
+     if toggle == false then
+toggle = true
+            OK = true
+Notify('x2b = ON')
+else
+toggle = false
+        OK = false
+Notify('x2b = OFF')
+end
+end
+end)
