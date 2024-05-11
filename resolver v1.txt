@@ -1,3 +1,4 @@
+-- also not mine but useful, i use both at once and they lowkey good
 local lp = game.Players.LocalPlayer
 local runservice = game:GetService("RunService")
 getgenv().kf = true
