@@ -1,0 +1,18 @@
+local lp = game.Players.LocalPlayer
+local runservice = game:GetService("RunService")
+getgenv().kf = true
+getgenv().xd = 0
+while getgenv().kf do     
+task.wait()     
+local loop = runservice.Heartbeat:Connect(function()         
+sethiddenproperty(lp.Character.HumanoidRootPart, "NetworkIsSleeping", true)         
+task.wait()         
+sethiddenproperty(lp.Character.HumanoidRootPart, "NetworkIsSleeping", false)     
+end) 
+task.wait(getgenv().xd)             
+if loop then         
+loop:Disconnect()     
+end 
+end  
+setfflag("S2PhysicsSenderRate", 0.05) 
+setfflag("PhysicsSenderMaxBandwidthBps", math.pi/10)
