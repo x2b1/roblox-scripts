@@ -1,0 +1,55 @@
+getgenv().Prefix_Settings = {
+    ['Spot'] = 'left', --// Left or Right ( Can be uppercase or not it doesnt matter )
+    ['Prefix'] = '/' --// Your Prefix ( This goes with the Spot )
+}
+getgenv().Commands = {
+    ['Lock'] = 'lock', --// Use this command to target someone
+    ['Unlock'] = 'unlock' --// Use this command to untarget
+}
+
+repeat
+    task.wait()
+until game:IsLoaded()
+
+local localPlayer = game:FindService'Players'.localPlayer
+local Target
+localPlayer.Chatted:connect(function(Argument)
+    local Split = Argument:lower():split' '
+    local function AddCommand(Command, Function)
+        if Prefix_Settings.Spot:lower() == 'right' then
+            if Split[1] == Command:lower()..Prefix_Settings.Prefix then
+                Function()
+            end
+        elseif Prefix_Settings.Spot:lower() == 'left' then
+            if Split[1] == Prefix_Settings.Prefix..Command:lower() then
+                Function()
+            end
+        end
+    end
+    AddCommand(Commands.Unlock, function()
+        if Target then
+            Target = nil
+        end
+    end)
+    for _, Player in pairs(game:FindService'Players':GetPlayers()) do
+        AddCommand(Commands.Lock, function()
+            if Player.Name:lower():match(Split[2]) or Player.DisplayName:lower():match(Split[2]) then
+                Target = Player
+            end
+        end)
+    end
+end)
+local function Bring()
+    localPlayer.Character:WaitForChild'FULLY_LOADED_CHAR'
+    localPlayer:FindFirstChildWhichIsA'Backpack':WaitForChild'[Crossbow]'
+    localPlayer:FindFirstChildWhichIsA'Backpack'['[Crossbow]'].Activated:connect(function()
+        if Target then
+            workspace:WaitForChild'Arrow'
+            firetouchinterest(workspace.Arrow, Target.Character.HumanoidRootPart, 0)
+        end
+    end)
+end
+Bring()
+localPlayer.CharacterAdded:connect(function()
+    Bring()
+end)

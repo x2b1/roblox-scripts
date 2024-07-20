@@ -1,0 +1,69 @@
+DA HOOD STAND
+ 
+ 
+ 
+ 
+-------------------------------------
+-- By ticxyylolz#9164 And xmxn#5536--
+-- Script Name: Ticxyy Stand---------
+-------------------------------------
+ 
+--[[
+ 
+ticxyylolz#9164's And xmxn#5536 Stand script to get started in "Owner" put the username you want to control them
+ 
+Example:
+getgenv().Owner =  {
+    ["Owner"] = "YourUserNamehere"
+}
+ 
+]]
+ 
+--AND DO NOT REPLACE ["Owner"] OR THE SCRIPT WILL BREAK!
+---------------------------------------------------------------------------------
+ 
+getgenv().Credit =  {
+    ['Credit'] = 'Made By Ticxyylolz#9164/Ticxyy, .gg/6Af4WgsBab', --dont change this or the script not working
+}
+ 
+getgenv().Owner =  {
+    ['Owner'] = 'AdidasDeIeted', -- Username Of Owner
+}
+ 
+getgenv().Settings =  {
+    --// !Main! \--
+    ['Position'] = 'Back', -- Position Of Stand [Back / Left / Right]
+    ['CrewID'] = '32570691', -- Must Be In Group For It To Work https://www.roblox.com/groups/32570691/Ticxyy
+    ['SynapseMode'] = 'On', -- [On / Off] If on then the stand wont bug out too much
+    --// ! attack ! \--
+    ['Attack'] = 'Heavy', -- Heavy = Super Punch Light = Spam Punch [Heavy! / Light!]
+    ['PredictionValue'] = '0.35', --prediction for attack thing
+    ['GunKillPrediction'] = '0.17', --prediction for gun kill
+    ['AttackMethod'] = 'under', --[sky / under] dont use under bc its broken
+    ['GunMethod'] = 'sky', --[sky / under]  the stand will shootin target like the settings
+    --// ! antilock ! \--
+    ['SkyAmount'] = '450', --Sky Velocity
+    --// ! Custom Thing ! \--
+    ['CustomSummon'] = 'summon!', --Custom Summon default is [summon!]
+    ['CustomSave'] = 's', --Custom Save if you knocked default is [save!]
+    ['CustomName'] = 'Ape🤫', --default is [Ape🤫]
+    --// ! Misc ! \--
+    ['FPSCAP'] = '60', -- This is so your main account gets theo most  fps (MAXED IS 60, SUGGEST 30 FPS ON STANDS)
+    ['ChatCmds'] = 'On', --[On/Off] Chatted When You Use Some Cmmand
+    ['AutoMask'] = 'On', --[On/Off] Auto mask when ur stand died
+    ['MaskMode'] = 'riot', --[surgeon / paintball / skull / pumpkin / hockey / ninja / riot] Mask Mode
+    ['LowGraphics'] = "On", -- [On/Off] Turns graphics down And Remove Useless Object
+    ['Msg'] = 'Yare Yare Daze.', -- When you say /e msg it makes all the alts say that message
+    ['FlyModeAnim'] = "glide", --[shazam / bugged shazam / glide / hover] --follow animation
+    ['FlyModeSpeed'] = "0.2", --if speed "0" its gonna have no delay and if more than "0.5" its gonna delayed (make it smooth)
+    --//    ! Sounds !     \--
+    --\ MUST HAVE BOOMBOX //--
+    ['Sounds'] = "On", -- [On/Off] Sounds when you use some commands like Mimic!
+    ['SummonMusicID'] = 'Default', -- Enter A Sound ID Put [Default] If You Would Like The Default Sound
+    ['SummonMusic'] = "On", -- [On/Off]
+    ['VanishAppearSound'] = "On", -- [On/Off]
+    ['CustomSong'] = "6853070044" -- Enter A Song ID And Say "Song!"
+}
+ 
+---------------------------------------------------------------------------------
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ticxyylolz/Stand-Script/main/V8.7", true))()
